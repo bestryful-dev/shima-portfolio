@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+:root {
+  --bg-porcelain: #fbf9f6;
+  --bg-sand: #f2efe9;
+  --surface-enamel: #ffffff;
+  --text-ink: #1a1e24;
+  --text-slate: #525b66;
+  --accent-sage: #175955;
+  --accent-champagne: #b88b6a;
+  --border-hairline: rgba(23, 89, 85, 0.16);
+}
+
+html {
+  background-color: var(--bg-porcelain);
+  color: var(--text-ink);
+  scroll-behavior: auto;
+}
+
+html[dir="rtl"] body {
+  font-family: "IBM Plex Sans Arabic", system-ui, sans-serif;
+}
+
+html[dir="ltr"] body {
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+
+html[dir="ltr"] .font-editorial {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+html[dir="rtl"] .font-editorial {
+  font-family: "IBM Plex Sans Arabic", system-ui, sans-serif;
+}
+
+/* Subtle Swiss clinical drafting grid */
+.bg-atelier-grid {
+  background-size: 56px 56px;
+  background-image:
+    linear-gradient(to right, rgba(23, 89, 85, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(184, 139, 106, 0.045) 1px, transparent 1px);
+}
+
+/* Smooth infinite marquee ribbons (pause on hover) */
+@keyframes ribbon-ltr {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes ribbon-rtl {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.animate-ribbon-forward {
+  display: flex;
+  width: max-content;
+  animation: ribbon-ltr 36s linear infinite;
+}
+
+.animate-ribbon-reverse {
+  display: flex;
+  width: max-content;
+  animation: ribbon-rtl 40s linear infinite;
+}
+
+.ribbon-wrapper:hover .animate-ribbon-forward,
+.ribbon-wrapper:hover .animate-ribbon-reverse {
+  animation-play-state: paused;
+}
+
+/* Sleek scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #fbf9f6;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(23, 89, 85, 0.35);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(23, 89, 85, 0.65);
+}
